@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Emojy</title>
+</head>
+<body onload="startGame()">
+    <canvas id="canvas"></canvas>
+    <div class="w" style="display:none;width: 100%;">
+        <img src="./assets/gif/angry.gif" id="animations" alt="">
+    </div>
+    <div class="container">
+        <button id="restart" onclick="restart()">Restart</button>
+    </div>
+    <div class="option">
+        <table style="width: 100%;">
+            <tr>
+                <td>tirer</td>
+                <td>:</td>
+                <td>f</td>
+            </tr>
+            <tr>
+                <td>Haut</td>
+                <td>:</td>
+                <td>▲</td>
+            </tr>
+            <tr>
+                <td>Gauche</td>
+                <td>:</td>
+                <td class="tdL">▲</td>
+            </tr>
+            <tr>
+                <td>Droite</td>
+                <td>:</td>
+                <td class="tdR">▲</td>
+            </tr>
+        </table>
+    </div>
+    <script src="./script/game.js"></script>
+    <script src="./script/component.js"></script>
+    <script src="./script/sound.js"></script>
+</body>
+</html>
