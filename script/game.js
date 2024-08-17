@@ -5,7 +5,6 @@ const EmojyFrames = document.getElementById("animations");
 
 let Emojy;
 let val = 12;
-let tire = false;
 let pause = true;
 let weap;
 let bareDeVie;
@@ -30,7 +29,7 @@ let SoundHitObstacle;
 let Score;
 let munitionText;
 let munition = 3;
-
+let bale = []
 
 function startGame() {
     createNewEmojy();
@@ -99,7 +98,7 @@ function updateGameArea() {
     if ((zoneDuJeu.frameNo/12 >= 100)&&(zoneDuJeu.frameNo/12 < 300)){
         a = 225;
     } else if (zoneDuJeu.frameNo/12 >= 500) {
-        a = 250;
+        a = 240;
     }
 
     if (zoneDuJeu.frameNo == 1 || everyinterval(a)) {
@@ -141,18 +140,18 @@ function updateGameArea() {
         Obstacles[i].update();
     }
 
-    if (tire) {
-        weap.update();
+    for (let j = 0; j < bale.length; j++) {
+        bale[j].update();
         for (i = 0; i < Obstacles.length; i += 1) {
-            if (weap.crashWith(Obstacles[i])) {
+            if (bale[j].crashWith(Obstacles[i])) {
                 SoundHitObstacle.play();
                 Obstacles[i] = Obstacles[Obstacles.length-1];
                 Obstacles.pop();
-                tire = false;
+                bale[j] = bale[bale.length-1];
+                bale.pop();
                 break;
             }
         }
-        weap.x += 3;
     }
 
     bareDeVie.x = Emojy.x;
@@ -193,6 +192,7 @@ let restart = ()=> {
     container.style.display = "none";
     Obstacles = [];
     zoneDuJeu.stop();
+    bale = []
     tire = false;
     munition = 3;
     startGame();
@@ -224,8 +224,8 @@ window.addEventListener("keydown", (event) => {
 
         } else if ((k == 70)&&(pause)) {
             if (munition > 0) {
-                weap = new component(20, 2, "red", Emojy.x+20, Emojy.y+5);
-                tire = true;
+                // weap = new component(20, 2, "red", Emojy.x+20, Emojy.y+5);
+                bale.push(new component(20, 2, "red", Emojy.x+20, Emojy.y+5));
                 munition--;
             }
         }
@@ -279,5 +279,4 @@ function accelerate(n,k) {
         clearmove();
     }
     Emojy.gravity = n;
-    i++;
 }

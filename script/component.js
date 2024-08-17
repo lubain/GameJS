@@ -40,6 +40,9 @@ class component {
             context.fillStyle = this.color;
             context.fillText(this.text, this.x, this.y);
         }
+        if (this.color == "red") {
+            this.x += 3;
+        }
     }
 
     newPos() {
