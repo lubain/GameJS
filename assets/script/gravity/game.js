@@ -59,8 +59,8 @@ function startGame() {
     Score = new Text("30px", "Consolas", "blue", 20, 50);
     munitionText = new Text("20px", "Consolas", "rgb(221, 42, 42)", 20, 80);
     bareDeVie = new Component(30, 5, "green", emojy.x, emojy.y - 5);
-    sound = new Sound("./assets/sound/bounce.mp3");
-    soundHitObstacle = new Sound("./assets/sound/eatpill.mp3");
+    sound = new Sound("../assets/audio/bounce.mp3");
+    soundHitObstacle = new Sound("../assets/audio/eatpill.mp3");
     zoneDuJeu.start();
 }
 
@@ -245,11 +245,11 @@ window.addEventListener("keyup", (event) => {
 });
 
 function move() {
-    // emojy.image.src = "./assets/gif/angry.gif";
+    // emojy.image.src = "../assets/gif/angry.gif";
 }
 
 function clearmove() {
-    // emojy.image.src = "./assets/gif/smiley.gif";
+    // emojy.image.src = "../assets/gif/smiley.gif";
 }
 
 function everyinterval(n) {
